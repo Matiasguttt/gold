@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>270 Degree Rube Goldberg Machine</title>
+    <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@c-frame/aframe-physics-system@4.2.x/dist/aframe-physics-system.min.js"></script>
+</head>
+<body>
+  <a-scene physics="gravity: -9.8">
+    <a-sky color="#17233d"></a-sky>
+    
+    <a-plane position="0 0 0" rotation="-90 0 0" width="24" height="99" color="#64748b" static-body> </a-plane>
+    <a-camera position="3 3 7"></a-camera>
+
+    <!-- START ELEMENT: Red Ball & Ramp -->
+    <a-box position="-7 1 -3" rotation="0 0 -28" width="3" height=".5" depth="1" color="#f97316" static-body> </a-box>
+    <a-sphere position="-8 2 -3" radius="0.35" color="#ef4444" dynamic-body> </a-sphere>
+    <a-box position="-7 0.45 -3" width="0.5" height="0.9" depth="1" color="#92400e" static-body> </a-box>
+
+    <!-- Early Dominos -->
+    <a-box position="-5 1 -3" width="0.25" height="1.2" depth="0.25" color="#facc15" dynamic-body> </a-box>
+    <a-box position="-4.2 1 -3" width="0.25" height="1.2" depth="0.25" color="#22c55e" dynamic-body> </a-box>
+    <a-box position="-3.4 1 -3" width="0.25" height="1.2" depth="0.25" color="#3b82f6" dynamic-body> </a-box>
+    <a-box position="-2.6 2 -3" width="0.25" height="4" depth="0.5" color="#a855f7" dynamic-body> </a-box>
+
+    <!-- Seesaw Section -->
+    <a-box position="0 0.5 -3" width="0.5" height="1" depth="0.5" color="#78716c" static-body> </a-box>
+    <a-box position="0 1 -3" width="2.5" height="0.2" depth="1.2" color="#06b6d4" dynamic-body="mass: 3"> </a-box>
+    <a-box position="0 1.25 -3.48" width="3.5" height="0.3" depth="0.1" color="#0891b2" static-body> </a-box>
+    <a-box position="0 1.25 -2.52" width="3.5" height="0.3" depth="0.1" color="#0891b2" static-body> </a-box>
+    
+    <!-- Pink Track Ball -->
+    <a-sphere position="-0.98 1.35 -3.25" radius="0.2" color="#fb7185" dynamic-body="mass: 0.5"> </a-sphere>
+
+    <!-- REPOSITIONED DOMINOS (Now straight in a row along the Z=-3 axis line) -->
+    <a-box position="1.4 1 -3" rotation="0 0 0" width="0.18" height="2" depth="0.8" color="#ef4444" dynamic-body> </a-box>
+    <a-box position="1.9 1 -3" rotation="0 0 0" width="0.18" height="1.2" depth="0.25" color="#f97316" dynamic-body> </a-box>
+    <a-box position="2.3 1 -3" rotation="0 0 0" width="0.18" height="1.2" depth="0.25" color="#facc15" dynamic-body> </a-box>
+    <a-box position="2.7 1 -3" rotation="0 0 0" width="0.18" height="1.2" depth="0.25" color="#22c55e" dynamic-body> </a-box>
+    <a-box position="3.1 1 -3" rotation="0 0 0" width="0.18" height="1.2" depth="0.25" color="#06b6d4" dynamic-body> </a-box>
+    <a-box position="3.5 1 -3" rotation="0 0 0" width="0.18" height="1.2" depth="0.25" color="#3b82f6" dynamic-body> </a-box>
+    <a-box position="3.9 1 -3" rotation="0 0 0" width="0.18" height="1.2" depth="0.25" color="#8b5cf6" dynamic-body> </a-box>
+
+    <!-- CREATIVE ADDITIONS: Phase 3 Wrapper Loop -->
+    <!-- Final strike triggers a new ball resting on a post -->
+     <a-box position="4.7 0.45 -3" width="0.3" height="2" depth="6" color="#475569" static-body></a-box>
+    <a-box position="4.3 0.45 -3" width="0.3" height="0.8" depth="0.3" color="#475569" static-body></a-box>
+     <a-box position="4.3 0.45 -3.35" width="1" height="2" depth="0.3" color="#475569" static-body></a-box>
+    
+    
+    <a-sphere position="3.95 1.7 -3" radius="0.15" color="#ec4899" dynamic-body="mass: 0.3"></a-sphere>
+
+    <!-- Zig-Zag Ramp 1 (Rolls Forward along +Z) -->
+    <a-box position="4.3 0.8 -1.2" rotation="1 0 0" width="0.4" height="0.1" depth="4" color="#10b981" static-body></a-box>
+    
+    <!-- Zig-Zag Ramp 2 (Catches ball, rolls Left along -X) -->
+    <a-box position="2.3 0.35 0.6" rotation="0 0 12" width="4.4" height="0.1" depth="0.4" color="#3b82f6" static-body></a-box>
+       <a-box position="2.3 0.35 1" rotation="0 0 12" width="4.4" height="1" depth="0.4" color="#3b82f6" static-body></a-box>
+       <a-box position="2.3 0.35 .1" rotation="0 0 12" width="3.7" height="0.8" depth="0.4" color="#3b82f6" static-body></a-box>
+       
+    <!-- Final Catch Bin on the floor -->
+ 
+  <a-box dynamic-body position="0.1 1.5 0.6" width="0.1" height="1" depth="0.1" color="#f43f5e" ></a-box>
+
+
+
+  </a-scene>
+</body>
+</html>
